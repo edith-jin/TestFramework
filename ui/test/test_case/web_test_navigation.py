@@ -22,55 +22,27 @@ class web_test_navigation(BaseWebTestCase):
     def test_navigation(self):
         self.driver = simple_login()
         navigation_business = Navigation_business(self.driver)
-        self.driver.get("https://web-srol-1.stream.azure-test.net/admin")
+        url = self.data['portal'][self.env] + '/admin'
+        self.driver.get(url)
 
-        #Manage Stream Menu
-        for (key,value) in navigation_business.managestream_menu_dict.items():
+        #navigation menu
+        for (key,value) in navigation_business.navigation_menu_dict.items():
             print("尝试点击按钮：", key, value)
             try:
-                navigation_business.click_navigation_button(navigation_business.managestream_menu_dict[key])
+                navigation_business.click_navigation_button(navigation_business.navigation_menu_dict[key])
                 navigation_business.tabpage_is_element_present(navigation_business.tabpage_dict[key])
                 print("进入"+key+"界面")
             except Exception as ex:
                 print("Failed！！！,",format(ex))
-        print("尝试点击按钮：Manage Stream")
-        try:
-            navigation_business.click_navigation_button_managestream()
-            print("隐藏Manage Stream菜单")
-        except Exception as ex:
-            print("隐藏Manage Stream菜单失败",format(ex))
 
-        #Stream Migration
-        for (key,value) in navigation_business.streammigration_menu_dict.items():
-            print("尝试点击按钮：", key, value)
+        #dropdownlist
+        for (key,value) in navigation_business.dropdownlist_dict.items():
+            print("尝试点击按钮：",key,value)
             try:
-                navigation_business.click_navigation_button(navigation_business.streammigration_menu_dict[key])
-                navigation_business.tabpage_is_element_present(navigation_business.tabpage_dict[key])
-                print("进入"+key+"界面")
+                navigation_business.click_navigation_button(navigation_business.dropdownlist_dict[key])
+                print("隐藏菜单:",key)
             except Exception as ex:
-                print("Failed！！！,",format(ex))
-        print("尝试点击按钮：Stream Migration")
-        try:
-            navigation_business.click_navigation_button_streammigration()
-            print("隐藏Stream Migration菜单")
-        except Exception as ex:
-            print("隐藏Stream Migration菜单失败",format(ex))
-
-        #Data Privacy
-        for (key,value) in navigation_business.dataprivacy_menu_dict.items():
-            print("尝试点击按钮：", key, value)
-            try:
-                navigation_business.click_navigation_button(navigation_business.dataprivacy_menu_dict[key])
-                navigation_business.tabpage_is_element_present(navigation_business.tabpage_dict[key])
-                print("进入"+key+"界面")
-            except Exception as ex:
-                print("Failed！！！,",format(ex))
-        print("尝试点击按钮：Data Privacy")
-        try:
-            navigation_business.click_navigation_button_dataprivacy()
-            print("隐藏Data Privacy菜单")
-        except Exception as ex:
-            print("隐藏Data Privacy菜单失败",format(ex))
+                print("隐藏菜单失败:",key,format(ex))
 
         #Admin settings标签
         print("确认Admin settings标签是否存在")

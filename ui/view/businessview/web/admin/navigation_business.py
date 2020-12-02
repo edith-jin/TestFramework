@@ -11,25 +11,21 @@ class Navigation_business(BusinessWebPage):
     def __init__(self, driver):
         BusinessWebPage.__init__(self=self, driver=driver)
         self._page = Page()
-        self.managestream_menu_dict = {
-                                        'Administrators':   self._page.managestream_administrators_button,
-                                        'Spotlight videos': self._page.managestream_spotlight_videos_button,
-                                        'Company policies':   self._page.managestream_company_policies_button,
-                                        'Usage details':   self._page.managestream_usage_details_button,
-                                        'Recycle bin':   self._page.managestream_recycle_bin_button,
-                                        'Groups':   self._page.managestream_groups_button,
-                                        'Support':   self._page.managestream_support_button,
-                                        'Comments':   self._page.managestream_comments_button,
-                                        'Content creation':   self._page.managestream_content_creation_button,
-                                        'eCDN solutions':   self._page.managestream_eCDN_solutions_button
-                                        }
-        self.streammigration_menu_dict = {
-                                            'Enable migration':   self._page.streammigration_enable_migration_button
-                                        }
-        self.dataprivacy_menu_dict = {
-                                    'Manage user data':   self._page.dataprivacy_manage_user_data_button,
-                                    'Manage deleted users':   self._page.dataprivacy_manage_deleted_users_button
-                                     }
+        self.navigation_menu_dict = {
+            'Administrators':   self._page.managestream_administrators_button,
+            'Spotlight videos': self._page.managestream_spotlight_videos_button,
+            'Company policies':   self._page.managestream_company_policies_button,
+            'Usage details':   self._page.managestream_usage_details_button,
+            'Recycle bin':   self._page.managestream_recycle_bin_button,
+            'Groups':   self._page.managestream_groups_button,
+            'Support':   self._page.managestream_support_button,
+            'Comments':   self._page.managestream_comments_button,
+            'Content creation':   self._page.managestream_content_creation_button,
+            'eCDN solutions':   self._page.managestream_eCDN_solutions_button,
+            'Enable migration':   self._page.streammigration_enable_migration_button,
+            'Manage user data':   self._page.dataprivacy_manage_user_data_button,
+            'Manage deleted users':   self._page.dataprivacy_manage_deleted_users_button
+            }
         self.tabpage_dict = {
             'Administrators':   self._page.tabpage_administrators_page,
             'Spotlight videos':   self._page.tabpage_spotlight_videos_page,
@@ -45,6 +41,12 @@ class Navigation_business(BusinessWebPage):
             'Manage user data':   self._page.tabpage_manage_user_data_page,
             'Manage deleted users':   self._page.tabpage_manage_deleted_users_page
         }
+        self.dropdownlist_dict = {
+            'Manage Stream':   self._page.managestream_button,
+            'Stream Migration':   self._page.streammigration_button,
+            'Data Privacy':   self._page.dataprivacy_button
+        }
+
     def tabpage_is_element_present(self,pname):
         self.is_element_present(pname)
 
@@ -57,12 +59,4 @@ class Navigation_business(BusinessWebPage):
 
     def adminsettings_is_element_present(self):
         self.is_element_present(self._page.adminsettings_tab)
-
-    def click_navigation_button_managestream(self):
-        self.click_navigation_button(self._page.managestream_button)        
-
-    def click_navigation_button_streammigration(self):
-        self.click_navigation_button(self._page.streammigration_button)
-
-    def click_navigation_button_dataprivacy(self):
-        self.click_navigation_button(self._page.dataprivacy_button)
+        
