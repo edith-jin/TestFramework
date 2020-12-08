@@ -45,13 +45,13 @@ class Admin_navigation(BaseWebTestCase):
             if is_parent_expanded:
                 item.click()
                 ele_tab_page = item.obj.find_element(*item.tab_by)
-                self.assertIsNotNone(ele_tab_page, ('页面'+ item.name + '已显示'))
+                self.assertIsNotNone(ele_tab_page, ('页面'+ item.name + '没有显示'))
                 #父节点下唯一子元素
                 self.assertEqual(item.tab_page_number(),1,"不是唯一子元素")
                 
 
 class Admin_navigation_dropdowmlist(Admin_navigation):
-    def test_admin_navigation(self):
+    def test_admin_navigation_dropdownlist(self):
         navigation_business = Navigation_business(self.driver)
 
         for name, item in navigation_business.menu.items():
