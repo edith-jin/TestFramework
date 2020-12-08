@@ -17,7 +17,7 @@ class web_test(BaseWebTestCase):
     # 有异常发生时会自动截图并呈现在报告中，
     # 其他需要呈现在报告里的截图，必须手动添加截图名称。
     @BeautifulReport.add_test_img('web_test-test_1-screenshot1')
-    def test_1(self):
+    def tenantadmin(self):
         self._testMethodDoc = "Validate topbar navigation"
         driver = simple_login()
         self.assertIsNotNone(driver, "成功获取driver！")

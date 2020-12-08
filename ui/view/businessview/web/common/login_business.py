@@ -6,7 +6,7 @@ from ui.lib.browser_engine import Logger, web_config, open_browser
 
 ENV = web_config['env']
 BROWSER = web_config['browser']
-USERNAME = web_config['user']['test1']
+USERNAME = web_config['user']['tenantadmin']
 PASSWORD = web_config['pwd']['commonpwd']
 
 class LoginBusiness(BusinessWebPage):
