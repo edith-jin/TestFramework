@@ -51,7 +51,7 @@ class Admin_navigation(BaseWebTestCase):
                 
 
 class Admin_navigation_dropdowmlist(Admin_navigation):
-    def test_admin_navigation_dropdownlist(self):
+    def test_admin_navigation(self):
         navigation_business = Navigation_business(self.driver)
 
         for name, item in navigation_business.menu.items():
