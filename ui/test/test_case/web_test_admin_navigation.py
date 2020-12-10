@@ -28,7 +28,7 @@ class Admin_navigation(BaseWebTestCase):
         url = self.data['portal'][self.env] + '/admin'
         self.driver.get(url)
         self.navigation_business = Navigation_business(self.driver)
-        self.assertTrue(self.navigation_business.is_sign_in_successully(), '页面没有正常展示')
+        self.assertTrue(self.navigation_business.is_sign_in_successully(), '页面正常展示')
 
     @BeautifulReport.depend_on("test_1")
     @BeautifulReport.add_test_img('admin_navigation-test_2')
@@ -51,8 +51,8 @@ class Admin_navigation(BaseWebTestCase):
                 # 假如可以展开/收起则测，否则跳过
                 if item.has_subitems:
                     time.sleep(1)
-                    self.assertTrue(item.expand(), "确认'"+name+"'没有展开子项目的功能")
-                    self.assertTrue(item.contract(), "确认'"+name+"'没有收起子项目的功能")
+                    self.assertTrue(item.expand(), "确认'"+name+"'展开子项目的功能")
+                    self.assertTrue(item.contract(), "确认'"+name+"'收起子项目的功能")
                 #navigation_business.menu['Spotlight videos'].click()
                 # 验证3
                 self.validate_tab_page(self.navigation_business.menu, name)
@@ -74,9 +74,9 @@ class Admin_navigation(BaseWebTestCase):
                 ele_tab_page = item.obj.find_element(*item.tab_by)
             except Exception as ex:
                 ele_tab_page = None
-            self.assertIsNotNone(ele_tab_page, ('页面'+ item.name + '没有显示'))
+            self.assertIsNotNone(ele_tab_page, ('页面'+ item.name + '显示'))
             elements = self.navigation_business.get_elements_under_tab_page()
-            self.assertEqual(len(elements), 1, "其他功能页面显示")
+            self.assertEqual(len(elements), 1, "功能页面显示")
 
 
 if __name__ == '__main__':
