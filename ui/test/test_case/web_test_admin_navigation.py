@@ -50,6 +50,7 @@ class Admin_navigation(BaseWebTestCase):
                 # 验证2
                 # 假如可以展开/收起则测，否则跳过
                 if item.has_subitems:
+                    time.sleep(1)
                     self.assertTrue(item.expand(), "确认'"+name+"'展开子项目的功能")
                     self.assertTrue(item.contract(), "确认'"+name+"'收起子项目的功能")
                 #navigation_business.menu['Spotlight videos'].click()

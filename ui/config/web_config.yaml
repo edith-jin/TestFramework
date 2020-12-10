@@ -1,5 +1,5 @@
 env: srol1
-browser: msedge
+browser: chrome
 portal:
   msit: https://msit.microsoftstream.com
   ppe: https://ppe.microsoftstream.com
