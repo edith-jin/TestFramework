@@ -1,6 +1,7 @@
 # coding=utf-8
 
 import unittest
+import time
 from common.lib.base_yaml import Yaml
 from ui.view.businessview.web.common.login_business import simple_login
 from common.package.BeautifulReport.BeautifulReport import BeautifulReport
@@ -46,7 +47,6 @@ class Admin_navigation(BaseWebTestCase):
                 # 验证1
                 if item.is_clickable is False:
                     pass
-
                 # 验证2
                 # 假如可以展开/收起则测，否则跳过
                 if item.has_subitems:
